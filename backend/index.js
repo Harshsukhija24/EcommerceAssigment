@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import path from "path";
 import cors from "cors"; // Import cors middleware
 import userRoute from "./Routes/UserRoute.js";
 import AdminRoute from "./Routes/AdminRoute.js";
@@ -23,6 +24,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 connectDb();
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+});
 
 app.use("/api/users", userRoute);
 app.use("/api/admin", AdminRoute);
