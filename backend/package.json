@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix ../frontend",
+    "build": "npm install && npm install --prefix ../frontend && npm run build --prefix ../frontend"
+>>>>>>> 4531b3e8c7f18d4bde6a17e665b5a6b9a549adce
   },
   "keywords": [],
   "author": "",
